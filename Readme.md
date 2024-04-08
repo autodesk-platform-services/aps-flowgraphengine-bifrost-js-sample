@@ -32,8 +32,8 @@ Install the required packages using `npm install`.
 Set the following environment variable with your APS app client id and secret
 
 ```
-APS_CLIENT_ID={YOUR_FORGE_ID}
-APS_CLIENT_SECRET={YOUR_FORGE_ID}
+APS_CLIENT_ID={YOUR_CLIENT_ID}
+APS_CLIENT_SECRET={YOUR_CLIENT_SCRET}
 ```
 
 ### Running
