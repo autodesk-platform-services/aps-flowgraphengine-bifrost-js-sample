@@ -285,7 +285,7 @@ async function createDirectory(directory) {
     const inputFileUrn = await completeUpload(accessToken, storageSpaceId, getInputFileUploadUrlResponse.upload.resourceId, getInputFileUploadUrlResponse.upload.id, inputFileEtag);
     console.log('Input File uploaded');
 
-    // Upload bifrost graph file (addTreesBasedOnElevationBifrostGraph.json)
+    // Upload bifrost graph file (addTrees.json)
     console.log('Uploading bifrost graph file');
     const bifrostGraphPath = path.join(__dirname, './input-data/addTrees.json');
     const getGraphUploadUrlResponse = await getResourceUploadUrl(accessToken, storageSpaceId, 'bifrostGraph.json');
