@@ -285,7 +285,7 @@ async function createDirectory(directory) {
     const inputFileUrn = await completeUpload(accessToken, storageSpaceId, getInputFileUploadUrlResponse.upload.resourceId, getInputFileUploadUrlResponse.upload.id, inputFileEtag);
     console.log('Input File uploaded');
 
-    // Upload bifrost graph file (addTreesBasedOnElevationBifrostGraph.json)
+    // Upload bifrost graph file (addTrees.json)
     console.log('Uploading bifrost graph file');
     const bifrostGraphPath = path.join(__dirname, './input-data/addTrees.json');
     const getGraphUploadUrlResponse = await getResourceUploadUrl(accessToken, storageSpaceId, 'bifrostGraph.json');
@@ -297,9 +297,9 @@ async function createDirectory(directory) {
     const jobId = await submitJob(accessToken, queueId, bifrostGraphUrn, inputFileUrn, amountOfTrees);
     console.log(`Job submitted, id: ${jobId}`);
 
-    console.log('waiting for job to complete');
+    console.log('Waiting for job to complete');
     const job = await waitForJobToComplete(accessToken, queueId, jobId);
-    console.log(`job finished with status ${job.status}`);
+    console.log(`Job finished with status ${job.status}`);
 
     if (job.status === 'FAILED') {
         const taskExecutions = await getTaskExecutions(accessToken, queueId, jobId);
