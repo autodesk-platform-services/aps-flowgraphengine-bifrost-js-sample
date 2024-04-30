@@ -297,9 +297,9 @@ async function createDirectory(directory) {
     const jobId = await submitJob(accessToken, queueId, bifrostGraphUrn, inputFileUrn, amountOfTrees);
     console.log(`Job submitted, id: ${jobId}`);
 
-    console.log('waiting for job to complete');
+    console.log('Waiting for job to complete');
     const job = await waitForJobToComplete(accessToken, queueId, jobId);
-    console.log(`job finished with status ${job.status}`);
+    console.log(`Job finished with status ${job.status}`);
 
     if (job.status === 'FAILED') {
         const taskExecutions = await getTaskExecutions(accessToken, queueId, jobId);
