@@ -94,7 +94,9 @@ async function submitJob(accessToken, queueId, bifrostGraphUrn, inputFileUrn, am
                             frames: {
                                 start: 1,
                                 end: 1,
-                            }
+                            },
+                            // Specify the version of bifrost
+                            bifrostVersion: '2.9.0.0'
                         },
                         // Specify the bifrost files to download and load.
                         definitionFiles: [{
